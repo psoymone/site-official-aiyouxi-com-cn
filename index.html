@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* header / 标题区 */
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.2rem;
+            border: 1px solid #e6e9ed;
+        }
+
+        .hero h1 {
+            font-weight: 600;
+            font-size: 2.2rem;
+            letter-spacing: -0.01em;
+            color: #0b1c2f;
+        }
+
+        .hero .sub {
+            color: #4b5e72;
+            font-size: 1.05rem;
+            margin-top: 0.6rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid #eef0f3;
+            padding-top: 1rem;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e2e6ec;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card + .card {
+            margin-top: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #152b3e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 2px solid #eef1f5;
+            letter-spacing: 0.01em;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin: 1.2rem 0 0.4rem 0;
+            color: #203649;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            color: #2c4053;
+        }
+
+        .card ul, .card ol {
+            padding-left: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 网格布局 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        /* 点缀 / 标签 */
+        .tag {
+            display: inline-block;
+            background: #eef1f6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #2a4055;
+            border: 1px solid #dce2ea;
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge {
+            background: #e3e9f0;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1e3348;
+            border: 1px solid #d2dae4;
+        }
+
+        .inline-link {
+            color: #1a5c8c;
+            text-decoration: none;
+            border-bottom: 1px solid #c7d6e5;
+            transition: border-color 0.1s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #1a5c8c;
+        }
+
+        /* 提示 / 说明 */
+        .notice-box {
+            background: #f6f9fc;
+            border-left: 4px solid #7f9ebc;
+            padding: 1rem 1.3rem;
+            border-radius: 12px;
+            margin: 1.3rem 0;
+            font-size: 0.95rem;
+            border: 1px solid #e2e9f0;
+            border-left-width: 4px;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #e9eef3;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0e2a41;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #3a5168;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #6b7e92;
+            font-size: 0.85rem;
+            border-top: 1px solid #dde3ea;
+            padding-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #1a5c8c;
+            text-decoration: none;
+            border-bottom: 1px solid #c0d0e0;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1a5c8c;
+        }
+
+        .inline-code {
+            background: #eef2f6;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 0.85em;
+            color: #1c3349;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>📂 爱游戏 · 资料整理索引</h1>
+        <div class="sub">
+            围绕游戏行业的信息归类、知识条目与参考入口，以清晰目录的方式呈现。
+        </div>
+    </div>
+
+    <!-- 第一部分：信息说明区 -->
+    <div class="card">
+        <h2>📋 关于这个整理页</h2>
+        <p>
+            本页从资料汇编与信息索引的角度，围绕「爱游戏」这一方向梳理内容。不同于常规官网或营销页面，这里侧重整理与游戏相关的公开资料、常见概念以及可供参考的信息片段。如果你正在寻找综合性的游戏信息整理，可以留意以下各分区。
+        </p>
+        <p>
+            其中部分条目引用了来自 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 的公开内容作为参考基准，同时结合了行业通识类资料。所有信息均以客观整理为主，不构成投资、消费或决策建议。
+        </p>
+        <div class="notice-box">
+            <strong>📌 说明：</strong> 以下所列内容仅为摘要或索引，具体数据、政策或产品动态请以官方渠道为准。
+        </div>
+    </div>
+
+    <!-- 网格：特点 + 常见场景 -->
+    <div class="grid-2">
+        <!-- 特点卡片 -->
+        <div class="card">
+            <h2>🔍 特点与定位</h2>
+            <ul>
+                <li><strong>信息聚合型</strong> — 将零散的游戏相关内容按主题分类，便于查阅。</li>
+                <li><strong>多维度标签</strong> — 每个条目附加类型标签，如<span class="tag">行业</span><span class="tag">产品</span><span class="tag">社区</span><span class="tag">机制</span>。</li>
+                <li><strong>交叉参考</strong> — 不同区块间通过关键词关联，例如“品类分析”可与“用户偏好”对照。</li>
+                <li><strong>持续迭代</strong> — 内容结构会随公开资料更新而调整，保持目录的时效性。</li>
+            </ul>
+            <p style="margin-top: 0.6rem;">
+                上述定位使得该索引不同于单一产品页面，更适合用作信息检索的起点。
+            </p>
+        </div>
+        <!-- 常见场景卡片 -->
+        <div class="card">
+            <h2>🧩 常见应用场景</h2>
+            <ul>
+                <li>快速了解某类游戏的基础术语与背景。</li>
+                <li>查找与游戏设计、运营相关的公开参考材料。</li>
+                <li>整理游戏行业报告或趋势分析时的辅助索引。</li>
+                <li>对新接触的游戏概念进行初步的信息对照。</li>
+            </ul>
+            <div style="margin-top: 0.8rem;">
+                <span class="badge">资料检索</span>
+                <span class="badge">概念对比</span>
+                <span class="badge">目录导航</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示区 + 相关信息区 (并排) 用网格 -->
+    <div class="grid-2">
+        <!-- 提示区 -->
+        <div class="card">
+            <h2>⚠️ 提示与注意</h2>
+            <ul>
+                <li>索引内容来自多个公开来源，整理时已做交叉核对，但仍可能存在偏差。</li>
+                <li>部分条目包含指向 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 的参考链接，可作为进一步阅读的入口。</li>
+                <li>游戏行业术语、政策、产品信息变化较快，建议结合近期资料使用。</li>
+                <li>本页不收集任何用户数据，仅提供静态内容展示。</li>
+            </ul>
+        </div>
+        <!-- 相关信息区 -->
+        <div class="card">
+            <h2>📎 相关信息</h2>
+            <p><strong>同类索引推荐：</strong>游戏设计模式、品类发展简史、用户研究基础、平台运营规范。</p>
+            <p><strong>常见关联词：</strong> 游戏机制、叙事设计、游戏化、留存分析、社区管理。</p>
+            <p><strong>外部参考：</strong> 部分定义参考自行业公开资料与 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 信息页。</p>
+            <div style="margin-top: 0.8rem;">
+                <span class="tag">#游戏目录</span>
+                <span class="tag">#索引</span>
+                <span class="tag">#信息整理</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <div class="card">
+        <h2>❓ 常见问题摘要 (FAQ)</h2>
+        <div class="faq-item">
+            <div class="faq-q">Q: 这个索引页是否涵盖所有游戏类型？</div>
+            <div class="faq-a">A: 主要覆盖主流品类及常见概念，未包含极度细分或非公开领域。索引会逐步补充。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 为什么推荐从 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 开始参考？</div>
+            <div class="faq-a">A: 该站点整理了较多基础条目与分类信息，适合作为信息查找的起点之一。同时建议结合其他官方资料交叉验证。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 页面内容会更新吗？</div>
+            <div class="faq-a">A: 内容结构会不定期调整，以反映更清晰的目录层次。无固定更新频率，以实际整理为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 我可以引用这里的整理结果吗？</div>
+            <div class="faq-a">A: 本页索引为公开信息汇编，引用时建议回溯原始出处。部分条目包含指向 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 的链接，请直接引用原链接。</div>
+        </div>
+    </div>
+
+    <!-- 附加：目录示例区块（可选） -->
+    <div class="card">
+        <h2>🗂️ 目录结构示例（部分）</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem 2rem;">
+            <div style="min-width: 150px;">
+                <strong>游戏类型</strong><br>
+                <span class="tag">角色扮演</span><br>
+                <span class="tag">策略</span><br>
+                <span class="tag">模拟</span><br>
+                <span class="tag">动作</span>
+            </div>
+            <div style="min-width: 150px;">
+                <strong>设计要素</strong><br>
+                <span class="tag">核心循环</span><br>
+                <span class="tag">奖励机制</span><br>
+                <span class="tag">难度曲线</span><br>
+                <span class="tag">交互模式</span>
+            </div>
+            <div style="min-width: 150px;">
+                <strong>运营与社区</strong><br>
+                <span class="tag">活动设计</span><br>
+                <span class="tag">用户分层</span><br>
+                <span class="tag">反馈渠道</span><br>
+                <span class="tag">内容更新</span>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #3d5a74;">
+            ↳ 完整目录及详细条目可参考 <a href="https://site-official-aiyouxi.com.cn" class="inline-link">爱游戏</a> 的分类导航。
+        </p>
+    </div>
+
+    <!-- footer 底部 -->
+    <div class="footer-note">
+        <p>本页为静态信息索引，内容仅供参考，不构成任何形式的建议或推荐。</p>
+        <p>整理方向：知识库入口 · 目录感布局 · 说明 / 提示 / 相关信息区  |  更多内容请访问 <a href="https://site-official-aiyouxi.com.cn">爱游戏</a></p>
+        <p style="margin-top: 0.6rem; opacity: 0.6; font-size: 0.75rem;">内容版本: 整理索引 · 目录结构持续补充</p>
+    </div>
+</div>
+</body>
+</html>
