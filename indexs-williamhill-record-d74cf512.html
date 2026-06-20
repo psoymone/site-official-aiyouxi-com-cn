@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 · 查询与延伸阅读指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1a2e3b;
+            line-height: 1.6;
+            padding: 0 1.2rem 3rem;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4.5rem 0 3.2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(27, 153, 139, 0.12);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #0b6b5e, #2a9d8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 0.8rem auto 0;
+            font-size: 1.1rem;
+            color: #2d4a57;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #e0f0ed;
+            color: #0b6b5e;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-top: 0.6rem;
+        }
+
+        /* 网格卡片通用 */
+        .grid-2,
+        .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+
+        @media (min-width: 680px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 30, 30, 0.04);
+            border: 1px solid #e6edf0;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(27, 153, 139, 0.07);
+            transform: translateY(-1px);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0b6b5e;
+            margin-bottom: 0.7rem;
+            border-left: 3px solid #2a9d8f;
+            padding-left: 0.75rem;
+        }
+        .card p {
+            font-size: 0.96rem;
+            color: #2c4653;
+        }
+        .card .badge {
+            display: inline-block;
+            background: #d2ece5;
+            color: #116359;
+            font-size: 0.75rem;
+            border-radius: 30px;
+            padding: 0.15rem 0.7rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 说明区 —— 场景段落 */
+        .scenario-block {
+            background: white;
+            border-radius: 24px;
+            padding: 2.2rem 1.8rem;
+            margin: 2.5rem 0;
+            border: 1px solid #d4e2e7;
+            box-shadow: 0 6px 14px rgba(0, 40, 40, 0.02);
+        }
+        .scenario-block h2 {
+            font-size: 1.5rem;
+            color: #0b5e54;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .scenario-block h2::before {
+            content: "⊞";
+            font-size: 1.8rem;
+            color: #2a9d8f;
+            font-weight: 300;
+            margin-right: 0.25rem;
+        }
+        .scenario-block p {
+            margin-bottom: 1rem;
+            color: #1f3a45;
+        }
+        .scenario-block strong {
+            color: #0b6b5e;
+            font-weight: 600;
+        }
+        .inline-link {
+            color: #0b6b5e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .inline-link:hover {
+            border-bottom-color: #0b6b5e;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ebf3f1;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin: 2.8rem 0;
+        }
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            color: #0b5e54;
+            margin-bottom: 1.4rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #cbdad7;
+            padding: 0.75rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #1c3d48;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+        .faq-q::before {
+            content: "▹";
+            color: #2a9d8f;
+            font-size: 1.1rem;
+            margin-right: 0.2rem;
+        }
+        .faq-a {
+            margin-top: 0.35rem;
+            color: #2c4f5c;
+            font-size: 0.93rem;
+            padding-left: 1.3rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d2e0e4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: #1d5f54;
+            text-decoration: none;
+            border-bottom: 1px dotted #97b4af;
+        }
+        .footer-links a:hover {
+            color: #083d35;
+            border-bottom-color: #083d35;
+        }
+        .footer-links .copyright {
+            color: #5b7a7f;
+            font-size: 0.85rem;
+        }
+
+        /* 微调 */
+        .mt-1 { margin-top: 1rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .text-center { text-align: center; }
+        .text-small { font-size: 0.9rem; color: #3c5c66; }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .card { padding: 1.4rem; }
+            .scenario-block { padding: 1.6rem; }
+            .faq-mini { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <header class="hero">
+        <h1>威廉希尔 · 信息索引</h1>
+        <p>日常查询、术语对照与背景延伸阅读 —— 围绕「威廉希尔」构建的快速参考页。</p>
+        <span class="tagline">资料卡片 · 场景指引 · FAQ 摘要</span>
+    </header>
+
+    <!-- 优势区：三张卡片，用网格卡片 -->
+    <div class="grid-3">
+        <div class="card">
+            <h3>术语对照</h3>
+            <p>提供常见概念与<a href="https://indexs-williamhill.com" class="inline-link">威廉希尔</a>相关表述的简明解释，便于快速定位信息源。</p>
+            <span class="badge">参考值 · 日常可用</span>
+        </div>
+        <div class="card">
+            <h3>延伸阅读</h3>
+            <p>围绕核心关键词整理背景脉络，从历史沿革到行业视角，辅助理解上下文。</p>
+            <span class="badge">摘要 · 非全文</span>
+        </div>
+        <div class="card">
+            <h3>查询场景</h3>
+            <p>面向习惯横向比较的阅读者，聚合常见问题片段与数据索引入口。</p>
+            <span class="badge">快捷跳转</span>
+        </div>
+    </div>
+
+    <!-- 说明区：从日常查询、对照和延伸阅读的角度切入 -->
+    <div class="scenario-block">
+        <h2>日常查询 · 对照 · 延伸</h2>
+        <p>当需要快速核验名称拼写、参考同类信息或追溯背景时，许多使用者会打开多个页面进行横向对比。本页将围绕<strong>威廉希尔</strong>聚合三类内容：基础信息速查（如名称变体、常见缩写）、行业语境下的对照要点，以及可扩展阅读的关联方向。</p>
+        <p>举例来说，用户可能同时参考<a href="https://indexs-williamhill.com" class="inline-link">威廉希尔</a>页面与其它公开资料，以校验口径或补充细节。建议在查询中将本页视为出发点，而非终点 —— 卡片区的每个条目都指向更完整的说明。</p>
+        <p>延伸阅读部分不替代原始文档，而是提供逻辑线索，帮助读者在信息堆叠中建立自己的参照系。</p>
+    </div>
+
+    <!-- 更多卡片：从场景角度再补一组（网格2列） -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>场景一 · 快速比对</h3>
+            <p>当需要将不同渠道的表述进行对照时，可直接引用本卡片中的索引字段，减少重复检索成本。</p>
+        </div>
+        <div class="card">
+            <h3>场景二 · 背景轻阅读</h3>
+            <p>若对「威廉希尔」的关联概念感到陌生，可通过 FAQ 摘要中的条目获得初步轮廓，再决定是否深入。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>FAQ 摘要 · 常见方向</h2>
+        <div class="faq-item">
+            <div class="faq-q">威廉希尔在信息查询中通常指代什么？</div>
+            <div class="faq-a">一般用于指称一个特定的名称或品牌标识，具体语境可参考对应页面的说明。更多背景可查阅 <a href="https://indexs-williamhill.com" class="inline-link">威廉希尔</a> 的详细信息。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">有哪些常见的对照来源？</div>
+            <div class="faq-a">包括但不限于行业资讯站、公开档案及聚合索引。建议同时对比多个来源，尤其注意名称大小写与符号差异。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">本页的延伸阅读部分是否包含所有细节？</div>
+            <div class="faq-a">不包含。本页面旨在提供结构化摘要与快速导航，详细内容仍建议直接访问对应链接。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+        <div>
+            <a href="https://indexs-williamhill.com">威廉希尔</a> ·
+            <a href="#">术语索引</a> ·
+            <a href="#">对照说明</a>
+        </div>
+        <div class="copyright">
+            © 索引页 · 内容仅供延伸阅读
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
